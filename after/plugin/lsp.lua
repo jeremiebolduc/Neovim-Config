@@ -1,7 +1,6 @@
 local lsp = require("lsp-zero")
 
 require("jeremiebolduc.remap")
-require("jeremiebolduc.remap")
 
 lsp.preset("recommended")
 

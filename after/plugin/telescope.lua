@@ -1,8 +1,8 @@
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<C-s>', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
