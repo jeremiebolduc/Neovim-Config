@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -161,11 +166,6 @@ _G.packer_plugins = {
     path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
   },
-  omnisharp_extended = {
-    loaded = true,
-    path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/omnisharp_extended",
-    url = "https://github.com/omnisharp_extended"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -200,11 +200,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/Users/jeremiebolduc/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

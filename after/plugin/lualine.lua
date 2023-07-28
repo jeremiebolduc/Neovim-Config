@@ -1,8 +1,8 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'material',
-        component_separators = { left = '', right = '' },
+        theme = 'dracula',
+        component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
@@ -31,8 +31,14 @@ require('lualine').setup {
                 file_status = true, -- displays file status (readonly status, modified status)
                 path = 1            -- 0 = just filename, 1 = relative path, 2 = absolute path
             },
+            {
+                'filetype',
+                colored = true,   -- Displays filetype icon in color if set to true
+                icon_only = true, -- Display only an icon for filetype
+                icon = { align = 'left' }, -- Display filetype icon on the right hand side
+            }
         },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'encoding', 'fileformat' },
         lualine_y = { 'searchcount' },
         lualine_z = { 'location' }
     },
