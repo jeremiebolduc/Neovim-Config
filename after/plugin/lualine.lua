@@ -21,11 +21,12 @@ require('lualine').setup {
         lualine_a = {
             {
                 'mode',
-                icons_enabled = true
+                icons_enabled = true,
+                icon = '',
             }
         },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = {
+        lualine_b = {
+            'branch',
             {
                 'filename',
                 file_status = true, -- displays file status (readonly status, modified status)
@@ -33,12 +34,19 @@ require('lualine').setup {
             },
             {
                 'filetype',
-                colored = true,   -- Displays filetype icon in color if set to true
-                icon_only = true, -- Display only an icon for filetype
+                colored = true,            -- Displays filetype icon in color if set to true
+                icon_only = true,          -- Display only an icon for filetype
                 icon = { align = 'left' }, -- Display filetype icon on the right hand side
-            }
+            },
         },
-        lualine_x = { 'encoding', 'fileformat' },
+        lualine_c = {
+            'diff',
+            'diagnostics'
+        },
+        lualine_x = {
+            'encoding',
+            'fileformat',
+        },
         lualine_y = { 'searchcount' },
         lualine_z = { 'location' }
     },
@@ -49,6 +57,7 @@ require('lualine').setup {
         lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
+
     },
     tabline = {},
     winbar = {},
