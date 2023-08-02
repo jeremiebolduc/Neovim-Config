@@ -11,8 +11,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    -- use('Mofiqul/vscode.nvim')
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use('Mofiqul/vscode.nvim')
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
@@ -41,6 +40,9 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },                  -- Required
         }
     }
+
+
+    use('OmniSharp/omnisharp-vim')
 
     use('ThePrimeagen/vim-be-good')
 
