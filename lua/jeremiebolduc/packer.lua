@@ -3,7 +3,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -11,15 +11,16 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use('Mofiqul/vscode.nvim')
+    use { 'Mofiqul/vscode.nvim' }
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
+    use { 'nvim-treesitter/nvim-treesitter-context' }
 
-    use('theprimeagen/harpoon')
+    use { 'theprimeagen/harpoon' }
 
-    use('mbbill/undotree')
+    use { 'mbbill/undotree' }
 
-    use('tpope/vim-fugitive')
+    use { 'tpope/vim-fugitive' }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -41,10 +42,7 @@ return require('packer').startup(function(use)
         }
     }
 
-
-    use('OmniSharp/omnisharp-vim')
-
-    use('ThePrimeagen/vim-be-good')
+    use { 'ThePrimeagen/vim-be-good' }
 
     use {
         'stevearc/oil.nvim',
@@ -61,16 +59,25 @@ return require('packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
 
-    use('neovim/nvim-lspconfig')
-    use('hrsh7th/cmp-nvim-lsp')
-    use('hrsh7th/cmp-buffer')
-    use('hrsh7th/cmp-path')
-    use('hrsh7th/cmp-cmdline')
-    use('hrsh7th/nvim-cmp')
+    use { 'neovim/nvim-lspconfig' }
+
+    -- Completion
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/nvim-cmp' }
+    use { "L3MON4D3/LuaSnip" }
+    use { 'saadparwaiz1/cmp_luasnip' }
+    use { "rafamadriz/friendly-snippets" }
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use { 'numToStr/Comment.nvim' }
 
-    use('nvim-tree/nvim-web-devicons')
+    use { 'nvim-tree/nvim-web-devicons' }
+
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    })
 end)
