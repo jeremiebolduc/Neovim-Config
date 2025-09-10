@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -30,6 +29,10 @@ require("lazy").setup({
 		{
 			"sphamba/smear-cursor.nvim",
 			opts = {
+				stiffness = 0.8, -- 0.6      [0, 1]
+				trailing_stiffness = 0.6, -- 0.45     [0, 1]
+				stiffness_insert_mode = 0.8, -- 0.6      [0, 1]
+				trailing_stiffness_insert_mode = 0.6, -- 0.45     [0, 1]
 				smear_between_buffers = true,
 				smear_between_neighbor_lines = true,
 				scroll_buffer_space = true,
@@ -77,10 +80,6 @@ require("lazy").setup({
 				-- ...
 			end,
 		},
-
-		-- if some code requires a module from an unloaded plugin, it will be automatically loaded.
-		-- So for api plugins like devicons, we can always set lazy=true
-		-- { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
 	-- automatically check for plugin updates
 	checker = { enabled = false },
