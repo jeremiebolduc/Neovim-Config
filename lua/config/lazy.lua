@@ -25,7 +25,6 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
-
 		{
 			"sphamba/smear-cursor.nvim",
 			opts = {
@@ -39,48 +38,15 @@ require("lazy").setup({
 				smear_insert_mode = true,
 			},
 		},
-
-		-- I have a separate config.mappings file where I require which-key.
-		-- With lazy the plugin will be automatically loaded when it is required somewhere
 		{ "folke/which-key.nvim", lazy = true },
-
-		{
-			"nvim-neorg/neorg",
-			-- lazy-load on filetype
-			ft = "norg",
-			-- options for neorg. This will automatically call `require("neorg").setup(opts)`
-			opts = {
-				load = {
-					["core.defaults"] = {},
-				},
-			},
-		},
-
-		-- {
-		-- 	"dstein64/vim-startuptime",
-		-- 	-- lazy-load on a command
-		-- 	cmd = "StartupTime",
-		-- 	-- init is called during startup. Configuration for vim plugins typically should be set in an init function
-		-- 	init = function()
-		-- 		vim.g.startuptime_tries = 10
-		-- 	end,
-		-- },
-
-		{
-			"hrsh7th/nvim-cmp",
-			-- load cmp on InsertEnter
-			event = "InsertEnter",
-			-- these dependencies will only be loaded when cmp loads
-			-- dependencies are always lazy-loaded unless specified otherwise
-			dependencies = {
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-buffer",
-			},
-			config = function()
-				-- ...
-			end,
+	},
+	-- do not automatically check for plugin updates
+	checker = {
+		enabled = false,
+	},
+	performance = {
+		rtp = {
+			reset = false,
 		},
 	},
-	-- automatically check for plugin updates
-	checker = { enabled = false },
 })
