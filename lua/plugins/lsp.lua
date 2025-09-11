@@ -2,8 +2,8 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
-		version = "v2.4", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!).
+		version = "v2.4",
+		-- install jsregexp.
 		build = "make install_jsregexp",
 	},
 	{
@@ -35,6 +35,7 @@ return {
 					{ name = "luasnip" },
 				}),
 			})
+
 			-- Cmdline completion (for ":")
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -45,12 +46,19 @@ return {
 				}),
 			})
 
-			-- Setup gopls
+			local wk = require("which-key")
+			wk.register({
+				["<leader>c"] = {
+					name = "+code",
+					a = { vim.lsp.buf.code_action, "Code Action" },
+				},
+			}, { buffer = bufnr })
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- Setup gopls
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 				on_attach = function(_, bufnr)
-					local wk = require("which-key")
 					wk.register({
 						g = {
 							d = { vim.lsp.buf.definition, "Go to Definition" },
@@ -59,15 +67,6 @@ return {
 							h = { vim.lsp.buf.hover, "Hover Info" },
 						},
 					}, { buffer = bufnr })
-					wk.register({
-						["<leader>d"] = {
-							name = "+diagnostics",
-							d = { vim.diagnostic.open_float, "Show diagnostics in float" },
-							l = { vim.diagnostic.setloclist, "Diagnostics to loclist" },
-							n = { vim.diagnostic.goto_next, "Next diagnostic" },
-							p = { vim.diagnostic.goto_prev, "Prev diagnostic" },
-						},
-					})
 				end,
 			})
 		end,
