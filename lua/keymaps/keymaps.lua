@@ -24,3 +24,5 @@ vim.keymap.set("n", "<leader>rl", function()
   end
 end, { desc = "Toggle relative line numbers" })
 
+-- Go in Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
