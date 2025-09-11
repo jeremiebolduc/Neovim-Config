@@ -48,11 +48,9 @@ return {
 
 			local wk = require("which-key")
 			wk.register({
-				["<leader>c"] = {
-					name = "+code",
-					a = { vim.lsp.buf.code_action, "Code Action" },
-				},
-			}, { buffer = bufnr })
+                { "<leader>c", group = "code" },
+                { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
+            }, { buffer = bufnr })
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- Setup gopls
