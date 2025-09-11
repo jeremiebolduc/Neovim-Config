@@ -15,4 +15,5 @@ vim.opt.scrolloff = 12
 -- Keep 10 lines visible on the side of the cursor when scrolling
 vim.opt.sidescrolloff = 10
 
+-- Make <Esc> fast
 vim.opt.ttimeout = false
