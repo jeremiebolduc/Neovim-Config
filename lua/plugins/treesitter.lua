@@ -23,6 +23,7 @@ return {
 					"json",
 					"html",
 					"go",
+                    "hcl",
 					"tsx",
 					"bash",
 					"markdown",

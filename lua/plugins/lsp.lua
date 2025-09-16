@@ -7,11 +7,29 @@ return {
 		build = "make install_jsregexp",
 	},
 	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"gopls",
+					"terraformls",
+				},
+				automatic_installation = true,
+			})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"hrsh7th/nvim-cmp", -- completion engine
 			"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-			-- "L3MON4D3/LuaSnip", -- snippet engine (optional but common)
 			"saadparwaiz1/cmp_luasnip", -- snippets in completion
 			"hrsh7th/cmp-cmdline",
 		},
@@ -48,12 +66,14 @@ return {
 
 			local wk = require("which-key")
 			wk.register({
-                { "<leader>c", group = "code" },
-                { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
-            }, { buffer = bufnr })
+				["<leader>c"] = {
+					name = "+code",
+					a = { vim.lsp.buf.code_action, "Code Action" },
+				},
+			}, { buffer = bufnr })
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			-- Setup gopls
+			-- Setup Go
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 				on_attach = function(_, bufnr)
@@ -66,6 +86,12 @@ return {
 						},
 					}, { buffer = bufnr })
 				end,
+			})
+			-- Setup Terraform
+			lspconfig.terraformls.setup({
+				cmd = { "terraform-ls", "serve" },
+				filetypes = { "terraform", "hcl" },
+				root_dir = lspconfig.util.root_pattern(".terraform", ".git"),
 			})
 		end,
 	},
